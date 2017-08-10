@@ -8,6 +8,7 @@ import states.ExitGame;
 import states.StartGame;
 import states.StartMenu;
 import states.common.GameState;
+import world.World;
 
 public class Game {
 
@@ -16,8 +17,11 @@ public class Game {
 	private GameState oldState;
 
 	private String choice;
+	
+	private World world;
 
-	public Game() {
+	public Game(World world) {
+		this.setWorld(world);
 		this.gameState = new StartMenu();
 		oldState = null;
 	}
@@ -63,6 +67,14 @@ public class Game {
 
 	public void setOldState(GameState oldState) {
 		this.oldState = oldState;
+	}
+
+	public World getWorld() {
+		return world;
+	}
+
+	public void setWorld(World world) {
+		this.world = world;
 	}
 
 }
