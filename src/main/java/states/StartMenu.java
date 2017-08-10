@@ -10,11 +10,6 @@ public class StartMenu extends AbstractGameState {
 		startMenuMain();
 	}
 
-	@Override
-	public void changeState(Game gameWrapper) {
-		changeOnChoice(gameWrapper);
-	}
-
 	private void startMenuMain() {
 		System.out.println(
 				  "********************MENU***********************\n"
