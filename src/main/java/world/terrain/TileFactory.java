@@ -10,7 +10,6 @@ import world.terrain.terrainswitheffect.BurningTerrain;
 import world.terrain.terrainswitheffect.NoEffectsTerrain;
 import world.terrain.terrainswitheffect.WaterTerrain;
 
-//TODO add size with tiletype
 public class TileFactory {
 
 	private static final Map<TileType, AbstractTile> tilesMap = new HashMap<>();

@@ -13,16 +13,20 @@ public class World {
 	private AbstractTile[][] world;
 
 	public World() {
-		world= new AbstractTile[Dimensions.WORLD_DEFAULT.getX()][Dimensions.WORLD_DEFAULT.getY()];
+		world = new AbstractTile[Dimensions.WORLD_DEFAULT.getX()][Dimensions.WORLD_DEFAULT.getY()];
 		baseTile();
 	}
 
 	public World(int x, int y) {
-		// TODO dynamic dimension
+		this.world = new AbstractTile[x][y];
 	}
 
-	public void addTile(TileType tileType, int[][] size, int[][] position) {
-		// TODO 
+	public void addTile(TileType tileType, int initX, int initY, int finX, int finY) {
+		for (int i = initX; i <= finX; i++) {
+			for (int j = initY; j <= finY; j++) {
+				world[i][j] = TileFactory.getTile(tileType);
+			}
+		}
 	}
 
 	public AbstractTile[][] getWorld() {
@@ -34,17 +38,17 @@ public class World {
 	}
 
 	private void baseTile() {
-		for(int i = 0; i < world.length; i++) {
-			for(int j = 0; j < world[i].length; j++) {
+		for (int i = 0; i < world.length; i++) {
+			for (int j = 0; j < world[i].length; j++) {
 				world[i][j] = TileFactory.getTile(TileType.NORMAL_TERRAIN);
 			}
 		}
 	}
-	
+
 	public void showWorldGUI() {
-		for(int i = 0; i < world.length; i++) {
+		for (int i = 0; i < world.length; i++) {
 			showTile(world[i][0]);
-			for(int j = 0; j < world[i].length; j++) {
+			for (int j = 1; j < world[i].length; j++) {
 				showTile(world[i][j]);
 			}
 			System.out.println("\n");
@@ -52,15 +56,15 @@ public class World {
 	}
 
 	private void showTile(AbstractTile abstractTile) {
-		if(abstractTile instanceof FireTile) {
+		if (abstractTile instanceof FireTile) {
 			System.out.print("*");
 		}
-		if(abstractTile instanceof GroundTile) {
+		if (abstractTile instanceof GroundTile) {
 			System.out.print(".");
 		}
-		if(abstractTile instanceof WaterTile) {
+		if (abstractTile instanceof WaterTile) {
 			System.out.print("~");
 		}
 	}
-	
+
 }
