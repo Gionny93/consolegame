@@ -1,19 +1,14 @@
 package game;
 
-import constants.TileType;
 import world.World;
+import world.cities.Yuliaopoli;
 
 public class MainGame {
 	public static void main(String[] args) {
-		
-		World world = new World();
-//		world.addTile(TileType.FIRE, 0, 0, 3, 3);
-//		world.addTile(TileType.WATER, 0, 6, 2, 8);
-//		world.showWorldGUI();
-//		System.out.println(world.getWorld()[3][3]);
-//		
+
+		World world = new Yuliaopoli();
 		Game game = new Game(world);
 		game.gameLoop();
-		
+
 	}
 }

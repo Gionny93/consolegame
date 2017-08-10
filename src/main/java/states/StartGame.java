@@ -4,7 +4,7 @@ import game.Game;
 import states.common.AbstractGameState;
 
 public class StartGame extends AbstractGameState {
-
+	
 	public StartGame() {
 		System.out.println("\nGame started");
 		mainGameOptions();
@@ -18,12 +18,12 @@ public class StartGame extends AbstractGameState {
 	}
 
 	protected void changeOnChoice(Game gameWrapper) {
+		//gameWrapper.getWorld().showWorldGUI();
 		switch (gameWrapper.getChoice()) {
 		case "w":
 		case "a":
 		case "s":
 		case "d":
-			System.out.println("moving LUL");
 			break;
 		case "p":
 			gameWrapper.setStateWithInstance(new PauseGame(), this);

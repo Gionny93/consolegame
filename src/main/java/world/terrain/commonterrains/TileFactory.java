@@ -1,11 +1,14 @@
-package world.terrain;
+package world.terrain.commonterrains;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import constants.Dimensions;
 import constants.TileType;
-import world.terrain.commonterrains.AbstractTile;
+import world.terrain.FireTile;
+import world.terrain.GrassTile;
+import world.terrain.GroundTile;
+import world.terrain.WaterTile;
 import world.terrain.terrainswitheffect.BurningTerrain;
 import world.terrain.terrainswitheffect.NoEffectsTerrain;
 import world.terrain.terrainswitheffect.WaterTerrain;
