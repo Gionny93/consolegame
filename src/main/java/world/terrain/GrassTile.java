@@ -5,8 +5,7 @@ import world.terrain.commonterrains.TerrainEffect;
 
 public class GrassTile extends AbstractTile{
 
-	public GrassTile(TerrainEffect terrainEffect, int[][] tileSize) {
-		super(terrainEffect, tileSize);
+	public GrassTile(TerrainEffect terrainEffect) {
+		super(terrainEffect);
 	}
-
 }

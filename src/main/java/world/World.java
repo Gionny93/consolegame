@@ -20,21 +20,17 @@ public abstract class World {
 	}
 
 	protected abstract void buildCity();
-	
+
 	protected void addTile(TileType tileType, int initX, int initY, int finX, int finY) {
-		for (int i = initX; i <= finX; i++) {
-			for (int j = initY; j <= finY; j++) {
-				world[i][j] = TileFactory.getTile(tileType);
+		if (initX <= finX && initY <= finY && initX <= Dimensions.WORLD_DEFAULT.getX()
+				&& finX <= Dimensions.WORLD_DEFAULT.getX() && initY <= Dimensions.WORLD_DEFAULT.getY()
+				&& finY <= Dimensions.WORLD_DEFAULT.getY()) {
+			for (int i = initX; i <= finX; i++) {
+				for (int j = initY; j <= finY; j++) {
+					world[i][j] = TileFactory.getTile(tileType);
+				}
 			}
 		}
-	}
-
-	public AbstractTile[][] getWorld() {
-		return world;
-	}
-
-	public void setWorld(AbstractTile[][] world) {
-		this.world = world;
 	}
 
 	protected void baseTile() {
@@ -68,6 +64,14 @@ public abstract class World {
 		if (abstractTile instanceof GrassTile) {
 			System.out.print("+");
 		}
+	}
+
+	public AbstractTile[][] getWorld() {
+		return world;
+	}
+
+	public void setWorld(AbstractTile[][] world) {
+		this.world = world;
 	}
 
 }

@@ -5,8 +5,7 @@ import world.terrain.commonterrains.TerrainEffect;
 
 public class FireTile extends AbstractTile{
 
-	public FireTile(TerrainEffect terrainEffect, int[][] tileSize) {
-		super(terrainEffect, tileSize);
+	public FireTile(TerrainEffect terrainEffect) {
+		super(terrainEffect);
 	}
-
 }

@@ -5,8 +5,7 @@ import world.terrain.commonterrains.TerrainEffect;
 
 public class WaterTile extends AbstractTile{
 
-	public WaterTile(TerrainEffect terrainEffect, int[][] tileSize) {
-		super(terrainEffect, tileSize);
+	public WaterTile(TerrainEffect terrainEffect) {
+		super(terrainEffect);
 	}
-
 }

@@ -3,7 +3,6 @@ package world.terrain.commonterrains;
 import java.util.HashMap;
 import java.util.Map;
 
-import constants.Dimensions;
 import constants.TileType;
 import world.terrain.FireTile;
 import world.terrain.GrassTile;
@@ -21,7 +20,7 @@ public class TileFactory {
 		AbstractTile tile = (AbstractTile) tilesMap.get(tileType);
 
 		if (tile == null) {
-			tile = TileCreator.createTile(tileType, TileCreator.defaultTileSize());
+			tile = TileCreator.createTile(tileType);
 			tilesMap.put(tileType, tile);
 			System.out.println("creating tile of type " + tileType.name());
 		}
@@ -29,29 +28,25 @@ public class TileFactory {
 	}
 
 	private static class TileCreator {
-		public static AbstractTile createTile(TileType tileType, int[][] tileSize) {
+		public static AbstractTile createTile(TileType tileType) {
 			AbstractTile tile = null;
 			switch (tileType) {
 			case WATER:
-				tile = new WaterTile(new WaterTerrain(), tileSize);
+				tile = new WaterTile(new WaterTerrain());
 				break;
 			case NORMAL_TERRAIN:
-				tile = new GroundTile(new NoEffectsTerrain(), tileSize);
+				tile = new GroundTile(new NoEffectsTerrain());
 				break;
 			case FIRE:
-				tile = new FireTile(new BurningTerrain(), tileSize);
+				tile = new FireTile(new BurningTerrain());
 				break;
 			case GRASS:
-				tile = new GrassTile(new NoEffectsTerrain(), tileSize);
+				tile = new GrassTile(new NoEffectsTerrain());
 				break;
 			default:
 				break;
 			}
 			return tile;
-		}
-
-		public static int[][] defaultTileSize() {
-			return new int[Dimensions.DEFAULTS_TILE.getX()][Dimensions.DEFAULTS_TILE.getY()];
 		}
 	}
 

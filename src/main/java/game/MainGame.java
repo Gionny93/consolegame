@@ -6,8 +6,9 @@ import world.cities.Yuliaopoli;
 public class MainGame {
 	public static void main(String[] args) {
 
-		World world = new Yuliaopoli();
-		Game game = new Game(world);
+		World yuliaCity = new Yuliaopoli();
+		yuliaCity.showWorldGUI();
+		Game game = new Game(yuliaCity);
 		game.gameLoop();
 
 	}

@@ -5,8 +5,7 @@ import world.terrain.commonterrains.TerrainEffect;
 
 public class GroundTile extends AbstractTile{
 
-	public GroundTile(TerrainEffect terrainEffect, int[][] tileSize) {
-		super(terrainEffect, tileSize);
+	public GroundTile(TerrainEffect terrainEffect) {
+		super(terrainEffect);
 	}
-
 }

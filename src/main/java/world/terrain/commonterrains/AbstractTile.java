@@ -6,8 +6,7 @@ public abstract class AbstractTile {
 	
 	private int[][] tileSize;
 	
-	public AbstractTile(TerrainEffect terrainEffect, int[][] tileSize) {
-		this.setTileSize(tileSize);
+	public AbstractTile(TerrainEffect terrainEffect) {
 		this.setTerrain(terrainEffect);
 	}
 
@@ -21,10 +20,6 @@ public abstract class AbstractTile {
 
 	public int[][] getTileSize() {
 		return tileSize;
-	}
-
-	public void setTileSize(int[][] tileSize) {
-		this.tileSize = tileSize;
 	}
 	
 }

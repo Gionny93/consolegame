@@ -24,6 +24,7 @@ public class StartGame extends AbstractGameState {
 		case "a":
 		case "s":
 		case "d":
+			System.out.println("Moving");
 			break;
 		case "p":
 			gameWrapper.setStateWithInstance(new PauseGame(), this);
