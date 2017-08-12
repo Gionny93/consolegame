@@ -47,6 +47,7 @@ public class GameUtils {
 
 	public static boolean lookForSaveFiles() {
 		File dir = saveDir.toFile();
+		if(!dir.exists()) return false;
 		File[] matches = getSaveFiles(dir);
 		return (matches.length == 0) ? false : true;
 	}
@@ -55,6 +56,7 @@ public class GameUtils {
 		System.out.println("\nLoading file...\n");
 		GameSaveStructure save = new GameSaveStructure();
 
+		// TODO make it dynamic from load file screen
 		File file = getSaveFiles(saveDir.toFile())[0];
 
 		try {
