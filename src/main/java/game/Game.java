@@ -1,5 +1,6 @@
 package game;
 
+import characters.commoncharacter.AbstractCharacter;
 import states.ExitGame;
 import states.StartGame;
 import states.StartMenu;
@@ -12,6 +13,8 @@ public class Game {
 	private GameState gameState;
 
 	private GameState oldState;
+	
+	private AbstractCharacter character;
 
 	private String choice;
 	
@@ -21,6 +24,7 @@ public class Game {
 		this.setWorld(world);
 		this.gameState = new StartMenu();
 		oldState = null;
+		setCharacter(null);
 	}
 
 	public void setState(GameState newGameState) {
@@ -62,6 +66,14 @@ public class Game {
 
 	public void setWorld(World world) {
 		this.world = world;
+	}
+
+	public AbstractCharacter getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(AbstractCharacter character) {
+		this.character = character;
 	}
 
 }

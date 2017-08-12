@@ -1,16 +1,18 @@
 package characters.commoncharacter;
 
+import constants.DefaultStrings;
 import constants.FileNames;
 
-public abstract class AbstractCharacter {
+public abstract class AbstractCharacter implements characterCommand {
 
 	private String name;
-	
+
 	private CharacterClass characterClass;
 
 	private CharacterAttributes attributes;
 
 	public AbstractCharacter() {
+		this.name = DefaultStrings.DEFAULT_NAME.getDefaultName();
 	}
 
 	public AbstractCharacter(String name) {

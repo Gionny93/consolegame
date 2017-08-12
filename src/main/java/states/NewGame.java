@@ -1,5 +1,6 @@
 package states;
 
+import characters.commoncharacter.AbstractCharacter;
 import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.CharactersFactory;
 import game.Game;
@@ -7,6 +8,8 @@ import states.common.AbstractGameState;
 import utils.GameUtils;
 
 public class NewGame extends AbstractGameState {
+	
+	private AbstractCharacter character;
 
 	public NewGame() {
 	}
@@ -20,8 +23,10 @@ public class NewGame extends AbstractGameState {
 		String classChoice = GameUtils.getInput();
 
 		CharacterClass characterClass = chooseClass(classChoice);
+		
+		this.character = CharactersFactory.createCharacter(name, characterClass);
 
-		GameUtils.saveCharacterToFile(CharactersFactory.createCharacter(name, characterClass));
+		GameUtils.saveCharacterToFile(character);
 
 		System.out.println("\nCharacter Created!!!\n");
 		System.out.println("1)Start Game!\n");
@@ -47,6 +52,7 @@ public class NewGame extends AbstractGameState {
 	protected void changeOnChoice(Game gameWrapper) {
 		switch (gameWrapper.getChoice()) {
 		case "1":
+			gameWrapper.setCharacter(this.character);
 			gameWrapper.setState(new StartGame());
 			break;
 		default:

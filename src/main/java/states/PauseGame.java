@@ -6,11 +6,11 @@ import states.common.AbstractGameState;
 public class PauseGame extends AbstractGameState {
 
 	public PauseGame() {
-		System.out.println("\nGame paused");
 	}
 	
 	@Override
 	protected void options() {
+		System.out.println("\nGame paused");
 		System.out.println(
 				"\nr)resume\n"
 			  + "q)quit");

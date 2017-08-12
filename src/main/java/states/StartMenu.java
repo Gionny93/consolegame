@@ -5,8 +5,7 @@ import states.common.AbstractGameState;
 import utils.GameUtils;
 
 public class StartMenu extends AbstractGameState {
-	
-	
+
 	@Override
 	protected void options() {
 		System.out.println(
@@ -21,9 +20,12 @@ public class StartMenu extends AbstractGameState {
 	protected void changeOnChoice(Game gameWrapper) {
 		switch (gameWrapper.getChoice()) {
 		case "1":
-			if(checkFirstTime()) {
+			if (checkFirstTime()) {
 				gameWrapper.setState(new NewGame());
 			} else {
+				if (gameWrapper.getCharacter() == null) {
+					gameWrapper.setCharacter(GameUtils.loadGame().getCharacter());
+				}
 				gameWrapper.setState(new StartGame());
 			}
 			break;
@@ -35,7 +37,6 @@ public class StartMenu extends AbstractGameState {
 			break;
 		}
 	}
-	
 
 	private boolean checkFirstTime() {
 		return !GameUtils.lookForSaveFiles();

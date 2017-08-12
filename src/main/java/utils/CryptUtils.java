@@ -28,7 +28,7 @@ public class CryptUtils {
 		return encryptedText;
 	}
 
-	public String decrypt(String pInput) {
+	public static String decrypt(String pInput) {
 		String decrypted = null;
 		try {
 			byte[] encrypted_bytes = Base64.getDecoder().decode(pInput);
