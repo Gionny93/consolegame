@@ -7,10 +7,10 @@ public class PauseGame extends AbstractGameState {
 
 	public PauseGame() {
 		System.out.println("\nGame paused");
-		pauseOptions();
 	}
 	
-	private void pauseOptions() {
+	@Override
+	protected void options() {
 		System.out.println(
 				"\nr)resume\n"
 			  + "q)quit");
@@ -31,5 +31,7 @@ public class PauseGame extends AbstractGameState {
 			break;
 		}
 	}
+
+	
 
 }

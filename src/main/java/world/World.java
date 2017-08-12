@@ -43,8 +43,8 @@ public abstract class World {
 
 	public void showWorldGUI() {
 		for (int i = 0; i < world.length; i++) {
-			showTile(world[i][0]);
-			for (int j = 1; j < world[i].length; j++) {
+			//showTile(world[i][0]);
+			for (int j = 0; j < world[i].length; j++) {
 				showTile(world[i][j]);
 			}
 			System.out.println("\n");

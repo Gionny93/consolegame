@@ -1,9 +1,5 @@
 package game;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import states.ExitGame;
 import states.StartGame;
 import states.StartMenu;
@@ -37,21 +33,11 @@ public class Game {
 
 	public void gameLoop() {
 		while (!(gameState instanceof ExitGame)) {
-			this.setChoice(getInput());
+			this.setChoice(GameUtils.getInput());
 			this.gameState.changeState(this);
 		}
 	}
 
-	static String getInput() {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		String line = null;
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return line;
-	}
 
 	public String getChoice() {
 		return choice;

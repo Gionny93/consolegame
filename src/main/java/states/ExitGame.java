@@ -10,12 +10,13 @@ public class ExitGame extends AbstractGameState {
 	}
 
 	@Override
-	public void changeState(Game gameWrapper) {
-
+	protected void changeOnChoice(Game gameWrapper) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	protected void changeOnChoice(Game gameWrapper) {
+	protected void options() {
 		// TODO Auto-generated method stub
 		
 	}

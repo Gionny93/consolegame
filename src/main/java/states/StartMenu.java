@@ -1,16 +1,14 @@
 package states;
 
 import game.Game;
+import game.GameUtils;
 import states.common.AbstractGameState;
 
 public class StartMenu extends AbstractGameState {
 	
 	
-	public StartMenu() {
-		startMenuMain();
-	}
-
-	private void startMenuMain() {
+	@Override
+	protected void options() {
 		System.out.println(
 				  "********************MENU***********************\n"
 				+ "***********************************************\n"
@@ -23,7 +21,11 @@ public class StartMenu extends AbstractGameState {
 	protected void changeOnChoice(Game gameWrapper) {
 		switch (gameWrapper.getChoice()) {
 		case "1":
-			gameWrapper.setState(new StartGame());
+			if(checkFirstTime()) {
+				gameWrapper.setState(new NewGame());
+			} else {
+				gameWrapper.setState(new StartGame());
+			}
 			break;
 		case "2":
 			gameWrapper.setState(new ExitGame());
@@ -33,4 +35,10 @@ public class StartMenu extends AbstractGameState {
 			break;
 		}
 	}
+	
+
+	private boolean checkFirstTime() {
+		return !GameUtils.lookForSaveFiles();
+	}
+
 }
