@@ -1,4 +1,6 @@
-package characters;
+package characters.commoncharacter;
+
+import characters.concretecharacters.GionnyCharacter;
 
 public class CharactersFactory {
 	

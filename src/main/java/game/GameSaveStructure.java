@@ -1,6 +1,6 @@
 package game;
 
-import characters.AbstractCharacter;
+import characters.commoncharacter.AbstractCharacter;
 
 public class GameSaveStructure {
 	

@@ -1,4 +1,7 @@
-package characters;
+package characters.concretecharacters;
+
+import characters.commoncharacter.AbstractCharacter;
+import characters.commoncharacter.CharacterClass;
 
 public class GionnyCharacter extends AbstractCharacter {
 

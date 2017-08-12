@@ -1,8 +1,8 @@
 package states;
 
 import game.Game;
-import game.GameUtils;
 import states.common.AbstractGameState;
+import utils.GameUtils;
 
 public class StartMenu extends AbstractGameState {
 	

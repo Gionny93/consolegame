@@ -1,4 +1,4 @@
-package game;
+package utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,8 +9,9 @@ import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import characters.AbstractCharacter;
+import characters.commoncharacter.AbstractCharacter;
 import constants.FileNames;
+import game.GameSaveStructure;
 
 public class GameUtils {
 
@@ -46,7 +47,7 @@ public class GameUtils {
 			File file = new File(path.toString() + File.separator + fileName);
 			if (!file.exists()) {
 				PrintWriter pw = new PrintWriter(file.toString(), "UTF-8");
-				pw.println(gameSaveStructure.toString());
+				pw.println(CryptUtils.encrypt(gameSaveStructure.toString()));
 				pw.close();
 			}
 		} catch (IOException e) {

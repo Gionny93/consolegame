@@ -1,4 +1,4 @@
-package characters;
+package characters.commoncharacter;
 
 import constants.FileNames;
 

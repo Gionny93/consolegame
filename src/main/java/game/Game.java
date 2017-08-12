@@ -4,6 +4,7 @@ import states.ExitGame;
 import states.StartGame;
 import states.StartMenu;
 import states.common.GameState;
+import utils.GameUtils;
 import world.World;
 
 public class Game {

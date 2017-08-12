@@ -1,10 +1,10 @@
 package states;
 
-import characters.CharacterClass;
-import characters.CharactersFactory;
+import characters.commoncharacter.CharacterClass;
+import characters.commoncharacter.CharactersFactory;
 import game.Game;
-import game.GameUtils;
 import states.common.AbstractGameState;
+import utils.GameUtils;
 
 public class NewGame extends AbstractGameState {
 
