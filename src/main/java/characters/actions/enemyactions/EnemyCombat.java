@@ -1,4 +1,6 @@
-package characters.actions.commonactions;
+package characters.actions.enemyactions;
+
+import characters.actions.commonactions.CharacterCombatActions;
 
 public class EnemyCombat implements CharacterCombatActions {
 

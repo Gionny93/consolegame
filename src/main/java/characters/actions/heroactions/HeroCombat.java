@@ -1,4 +1,6 @@
-package characters.actions.commonactions;
+package characters.actions.heroactions;
+
+import characters.actions.commonactions.CharacterCombatActions;
 
 public class HeroCombat implements CharacterCombatActions {
 

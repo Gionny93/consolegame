@@ -1,5 +1,6 @@
 package game;
 
+import characters.commoncharacter.enemy.Enemy;
 import characters.commoncharacter.hero.Hero;
 import states.ExitGame;
 import states.StartMenu;
@@ -14,6 +15,8 @@ public class Game {
 	private GameState oldState;
 	
 	private Hero character;
+	
+	private Enemy enemy;
 
 	private String choice;
 	
@@ -73,6 +76,14 @@ public class Game {
 
 	public void setCharacter(Hero character) {
 		this.character = character;
+	}
+
+	public Enemy getEnemy() {
+		return enemy;
+	}
+
+	public void setEnemy(Enemy enemy) {
+		this.enemy = enemy;
 	}
 
 }

@@ -1,26 +1,15 @@
 package characters.commoncharacter.hero;
 
-import characters.actions.commonactions.HeroCombat;
 import characters.commoncharacter.AbstractCharacter;
 import characters.commoncharacter.CharacterClass;
 import constants.FileNames;
 
 public abstract class Hero extends AbstractCharacter {
 
-	private HeroCombat combat;
-
 	private CharacterClass characterClass;
 
 	public Hero(String name) {
 		super(name);
-	}
-
-	public HeroCombat getCombat() {
-		return combat;
-	}
-
-	public void setCombat(HeroCombat combat) {
-		this.combat = combat;
 	}
 
 	public CharacterClass getCharacterClass() {
