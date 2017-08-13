@@ -1,11 +1,11 @@
 package characters.concretecharacters;
 
-import characters.commoncharacter.AbstractCharacter;
 import characters.commoncharacter.CharacterClass;
+import characters.commoncharacter.hero.Hero;
 import constants.Direction;
 
-public class GionnyCharacter extends AbstractCharacter {
-
+public class GionnyCharacter extends Hero {
+	
 	public GionnyCharacter(String name) {
 		super(name);
 		this.setCharacterClass(CharacterClass.GIONNY);

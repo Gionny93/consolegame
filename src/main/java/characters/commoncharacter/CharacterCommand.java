@@ -2,6 +2,6 @@ package characters.commoncharacter;
 
 import constants.Direction;
 
-public interface characterCommand {
+public interface CharacterCommand {
 	void move(Direction direction);
 }

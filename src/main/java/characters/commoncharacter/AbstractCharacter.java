@@ -1,13 +1,11 @@
 package characters.commoncharacter;
 
 import constants.DefaultStrings;
+import constants.Direction;
 import constants.FileNames;
 
-public abstract class AbstractCharacter implements characterCommand {
-
+public abstract class AbstractCharacter {
 	private String name;
-
-	private CharacterClass characterClass;
 
 	private CharacterAttributes attributes;
 
@@ -16,8 +14,12 @@ public abstract class AbstractCharacter implements characterCommand {
 	}
 
 	public AbstractCharacter(String name) {
-		super();
 		this.name = name;
+	}
+
+	public void move(Direction direction) {
+		// move in direction (every character handles movement differently, some may
+		// skip 1 tile at certain time, some may skip fire etc...)
 	}
 
 	public String getName() {
@@ -31,8 +33,6 @@ public abstract class AbstractCharacter implements characterCommand {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(this.getCharacterClass().name());
-		builder.append(FileNames.SEPARATOR.getFileName());
 		builder.append(this.getName());
 		builder.append(FileNames.SEPARATOR.getFileName());
 		builder.append(this.getAttributes().toString());
@@ -46,13 +46,4 @@ public abstract class AbstractCharacter implements characterCommand {
 	public void setAttributes(CharacterAttributes attributes) {
 		this.attributes = attributes;
 	}
-
-	public CharacterClass getCharacterClass() {
-		return characterClass;
-	}
-
-	public void setCharacterClass(CharacterClass characterClass) {
-		this.characterClass = characterClass;
-	}
-
 }

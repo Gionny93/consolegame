@@ -1,21 +1,14 @@
 package characters.concretecharacters;
 
-import characters.commoncharacter.AbstractCharacter;
 import characters.commoncharacter.CharacterClass;
-import constants.Direction;
+import characters.commoncharacter.hero.Hero;
 
-public class DanielCharacter extends AbstractCharacter{
+public class DanielCharacter extends Hero {
 	
 	public DanielCharacter(String name) {
 		super(name);
 		this.setCharacterClass(CharacterClass.DANIEL);
 		this.setAttributes(CharacterClass.DANIEL.getCharacterAttributes());
-	}
-
-	@Override
-	public void move(Direction direction) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

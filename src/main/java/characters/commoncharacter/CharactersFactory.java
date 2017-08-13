@@ -1,12 +1,13 @@
 package characters.commoncharacter;
 
+import characters.commoncharacter.hero.Hero;
 import characters.concretecharacters.DanielCharacter;
 import characters.concretecharacters.GionnyCharacter;
 
 public class CharactersFactory {
 
-	public static AbstractCharacter createCharacter(String name, CharacterClass characterClass) {
-		AbstractCharacter character = null;
+	public static Hero createHero(String name, CharacterClass characterClass) {
+		Hero character = null;
 		switch (characterClass) {
 		case GIONNY:
 			character = new GionnyCharacter(name);

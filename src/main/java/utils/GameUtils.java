@@ -10,10 +10,10 @@ import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import characters.commoncharacter.AbstractCharacter;
 import characters.commoncharacter.CharacterAttributes;
 import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.CharactersFactory;
+import characters.commoncharacter.hero.Hero;
 import constants.FileNames;
 import game.GameSaveStructure;
 
@@ -32,7 +32,7 @@ public class GameUtils {
 		return line;
 	}
 
-	public static void saveCharacterToFile(AbstractCharacter createCharacter) {
+	public static void saveCharacterToFile(Hero createCharacter) {
 
 		GameSaveStructure gameSaveStructure = new GameSaveStructure();
 
@@ -68,6 +68,7 @@ public class GameUtils {
 					line = CryptUtils.decrypt(line);
 					String[] characterData = line.split("\\|"); // stores into an array every field of the object
 																// separated by |
+					System.out.println(line);
 					CharacterClass cl = CharacterClass.valueOf(characterData[0]);
 					String name = characterData[1];
 					CharacterAttributes characterAttributes = new CharacterAttributes();
@@ -75,7 +76,7 @@ public class GameUtils {
 					characterAttributes.setIntelligence(Integer.parseInt(characterData[3]));
 					characterAttributes.setStrength(Integer.parseInt(characterData[4]));
 					characterAttributes.setSpeed(Integer.parseInt(characterData[5]));
-					save.setCharacter(CharactersFactory.createCharacter(name, cl));
+					save.setCharacter(CharactersFactory.createHero(name, cl));
 					save.getCharacter().setAttributes(characterAttributes); //update default attributes with savefile
 				}
 				in.close();

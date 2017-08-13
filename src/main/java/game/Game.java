@@ -1,8 +1,7 @@
 package game;
 
-import characters.commoncharacter.AbstractCharacter;
+import characters.commoncharacter.hero.Hero;
 import states.ExitGame;
-import states.StartGame;
 import states.StartMenu;
 import states.common.GameState;
 import utils.GameUtils;
@@ -14,7 +13,7 @@ public class Game {
 
 	private GameState oldState;
 	
-	private AbstractCharacter character;
+	private Hero character;
 
 	private String choice;
 	
@@ -31,7 +30,7 @@ public class Game {
 		this.gameState = newGameState;
 	}
 
-	public void setStateWithInstance(GameState newGameState, StartGame currentGame) {
+	public void setStateWithInstance(GameState newGameState, GameState currentGame) {
 		this.gameState = newGameState;
 		oldState = currentGame;
 	}
@@ -68,11 +67,11 @@ public class Game {
 		this.world = world;
 	}
 
-	public AbstractCharacter getCharacter() {
+	public Hero getCharacter() {
 		return character;
 	}
 
-	public void setCharacter(AbstractCharacter character) {
+	public void setCharacter(Hero character) {
 		this.character = character;
 	}
 

@@ -1,24 +1,24 @@
 package game;
 
-import characters.commoncharacter.AbstractCharacter;
+import characters.commoncharacter.hero.Hero;
 
 public class GameSaveStructure {
 	
-	private AbstractCharacter character;
+	private Hero character;
 	
 	public GameSaveStructure() {
 	}
 
-	public GameSaveStructure(AbstractCharacter character) {
+	public GameSaveStructure(Hero character) {
 		super();
 		this.character = character;
 	}
 
-	public AbstractCharacter getCharacter() {
+	public Hero getCharacter() {
 		return character;
 	}
 
-	public void setCharacter(AbstractCharacter character) {
+	public void setCharacter(Hero character) {
 		this.character = character;
 	}
 

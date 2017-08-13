@@ -1,15 +1,18 @@
 package states;
 
-import characters.commoncharacter.AbstractCharacter;
+import org.apache.commons.lang3.StringUtils;
+
 import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.CharactersFactory;
+import characters.commoncharacter.hero.Hero;
+import constants.DefaultStrings;
 import game.Game;
 import states.common.AbstractGameState;
 import utils.GameUtils;
 
 public class NewGame extends AbstractGameState {
 	
-	private AbstractCharacter character;
+	private Hero character;
 
 	public NewGame() {
 	}
@@ -18,13 +21,13 @@ public class NewGame extends AbstractGameState {
 	protected void options() {
 		System.out.println("\nNew Game");
 		System.out.println("\nCreate new character!\n" + "Name:");
-		String name = GameUtils.getInput();
-		System.out.println("\nClass:\n" + "1)GIONNY - 2)DANIEL");
+		String name = (GameUtils.getInput().equals(StringUtils.EMPTY)) ? DefaultStrings.DEFAULT_NAME.getDefaultName() : GameUtils.getInput();
+		System.out.println("\nClass:\n" + "1)GIONNY - 2)DANIEL - Default GIONNY");
 		String classChoice = GameUtils.getInput();
 
 		CharacterClass characterClass = chooseClass(classChoice);
 		
-		this.character = CharactersFactory.createCharacter(name, characterClass);
+		this.character = CharactersFactory.createHero(name, characterClass);
 
 		GameUtils.saveCharacterToFile(character);
 
@@ -43,6 +46,7 @@ public class NewGame extends AbstractGameState {
 			characterClass = CharacterClass.DANIEL;
 			break;
 		default:
+			characterClass = CharacterClass.GIONNY;
 			break;
 		}
 		return characterClass;

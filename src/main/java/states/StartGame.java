@@ -3,7 +3,6 @@ package states;
 import constants.Direction;
 import game.Game;
 import states.common.AbstractGameState;
-import utils.GameUtils;
 
 public class StartGame extends AbstractGameState {
 
