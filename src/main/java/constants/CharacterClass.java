@@ -1,4 +1,6 @@
-package characters.commoncharacter;
+package constants;
+
+import characters.commoncharacter.CharacterAttributes;
 
 public enum CharacterClass {
 

@@ -11,9 +11,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import characters.commoncharacter.CharacterAttributes;
-import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.CharactersFactory;
 import characters.commoncharacter.hero.Hero;
+import constants.CharacterClass;
 import constants.FileNames;
 import game.GameSaveStructure;
 

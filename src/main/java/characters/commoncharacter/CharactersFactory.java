@@ -3,6 +3,7 @@ package characters.commoncharacter;
 import characters.commoncharacter.hero.Hero;
 import characters.concretecharacters.DanielCharacter;
 import characters.concretecharacters.GionnyCharacter;
+import constants.CharacterClass;
 
 public class CharactersFactory {
 

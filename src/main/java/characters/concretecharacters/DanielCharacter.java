@@ -1,7 +1,7 @@
 package characters.concretecharacters;
 
-import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.hero.Hero;
+import constants.CharacterClass;
 
 public class DanielCharacter extends Hero {
 

@@ -2,9 +2,9 @@ package states;
 
 import org.apache.commons.lang3.StringUtils;
 
-import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.CharactersFactory;
 import characters.commoncharacter.hero.Hero;
+import constants.CharacterClass;
 import constants.DefaultStrings;
 import constants.States;
 import game.Game;

@@ -2,7 +2,7 @@ package characters.commoncharacter.hero;
 
 import characters.actions.heroactions.HeroCombat;
 import characters.commoncharacter.AbstractCharacter;
-import characters.commoncharacter.CharacterClass;
+import constants.CharacterClass;
 import constants.FileNames;
 
 public abstract class Hero extends AbstractCharacter {

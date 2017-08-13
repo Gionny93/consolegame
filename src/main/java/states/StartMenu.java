@@ -23,7 +23,7 @@ public class StartMenu extends AbstractGameState {
 		switch (gameWrapper.getChoice()) {
 		case "1":
 			if (checkFirstTime()) {
-				gameWrapper.setState(StatesFactory.createState(States.STARGAME));
+				gameWrapper.setState(StatesFactory.createState(States.NEWGAME));
 			} else {
 				if (gameWrapper.getCharacter() == null) {
 					gameWrapper.setCharacter(GameUtils.loadGame().getCharacter());

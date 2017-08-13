@@ -1,7 +1,7 @@
 package characters.concretecharacters;
 
-import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.hero.Hero;
+import constants.CharacterClass;
 import constants.CombatAttacks;
 import constants.Direction;
 
@@ -11,9 +11,7 @@ public class GionnyCharacter extends Hero {
 		super(name);
 		this.setCharacterClass(CharacterClass.GIONNY);
 		this.setAttributes(CharacterClass.GIONNY.getCharacterAttributes());
-		// this.setCharacterCombat(new HeroCombat()); //as you level up you get more
-		// attacks, maybe add a builder to the hero combat class
-
+		// as you level up you get more attacks
 	}
 
 	@Override
