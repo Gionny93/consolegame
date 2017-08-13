@@ -1,9 +1,6 @@
 package characters.commoncharacter;
 
-import java.util.List;
-
-import characters.actions.commonactions.CharacterCombat;
-import characters.actions.commonactions.CharacterCombatActions;
+import characters.actions.commonactions.AbstractCombat;
 import constants.DefaultStrings;
 import constants.Direction;
 import constants.FileNames;
@@ -14,12 +11,7 @@ public abstract class AbstractCharacter {
 
 	private CharacterAttributes attributes;
 
-	private CharacterCombatActions characterCombat;
-
-	// test
-	private List<CharacterCombat> combatActions;
-	// new battle -> init arraylist, every action add to arraylist and display on
-	// the right. attack history
+	private AbstractCombat characterCombat;
 
 	public AbstractCharacter() {
 		this.name = DefaultStrings.DEFAULT_NAME.getDefaultName();
@@ -59,20 +51,12 @@ public abstract class AbstractCharacter {
 		this.attributes = attributes;
 	}
 
-	public CharacterCombatActions getCharacterCombat() {
+	public AbstractCombat getCharacterCombat() {
 		return characterCombat;
 	}
 
-	public void setCharacterCombat(CharacterCombatActions characterCombat) {
+	public void setCharacterCombat(AbstractCombat characterCombat) {
 		this.characterCombat = characterCombat;
-	}
-
-	public List<CharacterCombat> getCombatActions() {
-		return combatActions;
-	}
-
-	public void setCombatActions(List<CharacterCombat> combatActions) {
-		this.combatActions = combatActions;
 	}
 
 }

@@ -6,12 +6,14 @@ import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.CharactersFactory;
 import characters.commoncharacter.hero.Hero;
 import constants.DefaultStrings;
+import constants.States;
 import game.Game;
 import states.common.AbstractGameState;
+import states.common.StatesFactory;
 import utils.GameUtils;
 
 public class NewGame extends AbstractGameState {
-	
+
 	private Hero character;
 
 	public NewGame() {
@@ -21,12 +23,15 @@ public class NewGame extends AbstractGameState {
 	protected void options() {
 		System.out.println("\nNew Game");
 		System.out.println("\nCreate new character!\n" + "Name:");
-		String name = (GameUtils.getInput().equals(StringUtils.EMPTY)) ? DefaultStrings.DEFAULT_NAME.getDefaultName() : GameUtils.getInput();
+		String name = GameUtils.getInput();
+		if (name.equals(StringUtils.EMPTY)) {
+			name = DefaultStrings.DEFAULT_NAME.getDefaultName();
+		}
 		System.out.println("\nClass:\n" + "1)GIONNY - 2)DANIEL - Default GIONNY");
 		String classChoice = GameUtils.getInput();
 
 		CharacterClass characterClass = chooseClass(classChoice);
-		
+
 		this.character = CharactersFactory.createHero(name, characterClass);
 
 		GameUtils.saveCharacterToFile(character);
@@ -57,7 +62,7 @@ public class NewGame extends AbstractGameState {
 		switch (gameWrapper.getChoice()) {
 		case "1":
 			gameWrapper.setCharacter(this.character);
-			gameWrapper.setState(new StartGame());
+			gameWrapper.setState(StatesFactory.createState(States.STARGAME));
 			break;
 		default:
 			break;

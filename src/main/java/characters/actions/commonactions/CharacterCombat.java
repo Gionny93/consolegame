@@ -1,5 +1,8 @@
 package characters.actions.commonactions;
 
 public interface CharacterCombat {
-	void execute();
+
+	String showAttackEffect();
+
+	int executeAttack();
 }

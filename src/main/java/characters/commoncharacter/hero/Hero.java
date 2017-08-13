@@ -1,5 +1,6 @@
 package characters.commoncharacter.hero;
 
+import characters.actions.heroactions.HeroCombat;
 import characters.commoncharacter.AbstractCharacter;
 import characters.commoncharacter.CharacterClass;
 import constants.FileNames;
@@ -10,7 +11,11 @@ public abstract class Hero extends AbstractCharacter {
 
 	public Hero(String name) {
 		super(name);
+		this.setCharacterCombat(new HeroCombat());
+		defaultCombat();
 	}
+
+	protected abstract void defaultCombat();
 
 	public CharacterClass getCharacterClass() {
 		return characterClass;

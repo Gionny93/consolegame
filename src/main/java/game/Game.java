@@ -2,9 +2,10 @@ package game;
 
 import characters.commoncharacter.enemy.Enemy;
 import characters.commoncharacter.hero.Hero;
+import constants.States;
 import states.ExitGame;
-import states.StartMenu;
 import states.common.GameState;
+import states.common.StatesFactory;
 import utils.GameUtils;
 import world.World;
 
@@ -24,7 +25,7 @@ public class Game {
 
 	public Game(World world) {
 		this.setWorld(world);
-		this.gameState = new StartMenu();
+		this.gameState = StatesFactory.createState(States.STARTMENU);
 		oldState = null;
 		setCharacter(null);
 	}

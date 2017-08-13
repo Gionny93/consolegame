@@ -1,8 +1,10 @@
 package states;
 
 import constants.Direction;
+import constants.States;
 import game.Game;
 import states.common.AbstractGameState;
+import states.common.StatesFactory;
 
 public class StartGame extends AbstractGameState {
 
@@ -37,10 +39,10 @@ public class StartGame extends AbstractGameState {
 			System.out.println("Moving right");
 			break;
 		case "p":
-			gameWrapper.setStateWithInstance(new PauseGame(), this);
+			gameWrapper.setStateWithInstance(StatesFactory.createState(States.PAUSEGAME), this);
 			break;
 		case "q":
-			gameWrapper.setState(new ExitGame());
+			gameWrapper.setState(StatesFactory.createState(States.EXIGAME));
 			break;
 		}
 	}

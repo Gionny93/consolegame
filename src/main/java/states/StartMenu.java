@@ -1,7 +1,9 @@
 package states;
 
+import constants.States;
 import game.Game;
 import states.common.AbstractGameState;
+import states.common.StatesFactory;
 import utils.GameUtils;
 
 public class StartMenu extends AbstractGameState {
@@ -21,19 +23,19 @@ public class StartMenu extends AbstractGameState {
 		switch (gameWrapper.getChoice()) {
 		case "1":
 			if (checkFirstTime()) {
-				gameWrapper.setState(new NewGame());
+				gameWrapper.setState(StatesFactory.createState(States.STARGAME));
 			} else {
 				if (gameWrapper.getCharacter() == null) {
 					gameWrapper.setCharacter(GameUtils.loadGame().getCharacter());
 				}
-				gameWrapper.setState(new StartGame());
+				gameWrapper.setState(StatesFactory.createState(States.STARGAME));
 			}
 			break;
 		case "2":
-			gameWrapper.setState(new ExitGame());
+			gameWrapper.setState(StatesFactory.createState(States.EXIGAME));
 			break;
 		default:
-			gameWrapper.setState(new StartMenu());
+			gameWrapper.setState(StatesFactory.createState(States.STARTMENU));
 			break;
 		}
 	}
