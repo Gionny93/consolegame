@@ -2,7 +2,7 @@ package characters.actions.heroactions;
 
 import characters.actions.commonactions.CharacterCombatActions;
 
-public class HeroCombat implements CharacterCombatActions {
+public class HeroBasicCombat implements CharacterCombatActions {
 
 	@Override
 	public void attack() {

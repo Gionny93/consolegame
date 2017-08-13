@@ -47,7 +47,8 @@ public class GameUtils {
 
 	public static boolean lookForSaveFiles() {
 		File dir = saveDir.toFile();
-		if(!dir.exists()) return false;
+		if (!dir.exists())
+			return false;
 		File[] matches = getSaveFiles(dir);
 		return (matches.length == 0) ? false : true;
 	}
@@ -77,7 +78,7 @@ public class GameUtils {
 					characterAttributes.setStrength(Integer.parseInt(characterData[4]));
 					characterAttributes.setSpeed(Integer.parseInt(characterData[5]));
 					save.setCharacter(CharactersFactory.createHero(name, cl));
-					save.getCharacter().setAttributes(characterAttributes); //update default attributes with savefile
+					save.getCharacter().setAttributes(characterAttributes); // update default attributes with savefile
 				}
 				in.close();
 			}

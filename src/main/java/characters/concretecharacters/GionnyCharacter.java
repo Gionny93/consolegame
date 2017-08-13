@@ -1,6 +1,6 @@
 package characters.concretecharacters;
 
-import characters.actions.heroactions.HeroCombat;
+import characters.actions.heroactions.HeroBasicCombat;
 import characters.commoncharacter.CharacterClass;
 import characters.commoncharacter.hero.Hero;
 import constants.Direction;
@@ -11,7 +11,7 @@ public class GionnyCharacter extends Hero {
 		super(name);
 		this.setCharacterClass(CharacterClass.GIONNY);
 		this.setAttributes(CharacterClass.GIONNY.getCharacterAttributes());
-		this.setCharacterCombat(new HeroCombat());
+		this.setCharacterCombat(new HeroBasicCombat());
 	}
 
 	@Override

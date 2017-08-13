@@ -2,7 +2,7 @@ package characters.actions.enemyactions;
 
 import characters.actions.commonactions.CharacterCombatActions;
 
-public class EnemyCombat implements CharacterCombatActions {
+public class EnemyBasicCombat implements CharacterCombatActions {
 
 	@Override
 	public void attack() {
