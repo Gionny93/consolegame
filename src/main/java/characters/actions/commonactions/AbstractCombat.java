@@ -5,7 +5,7 @@ import java.util.List;
 
 import constants.CombatAttacks;
 
-public class AbstractCombat {
+public abstract class AbstractCombat {
 	private List<CharacterCombat> attacks;
 
 	public AbstractCombat() {
