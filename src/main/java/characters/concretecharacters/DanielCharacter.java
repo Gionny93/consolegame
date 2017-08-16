@@ -17,4 +17,5 @@ public class DanielCharacter extends Hero {
 		// TODO Auto-generated method stub
 
 	}
+
 }

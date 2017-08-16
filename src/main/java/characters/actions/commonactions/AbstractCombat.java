@@ -9,7 +9,7 @@ public class AbstractCombat {
 	private List<CharacterCombat> attacks;
 
 	public AbstractCombat() {
-		setAttacks(new ArrayList<CharacterCombat>());
+		setAttacks(new ArrayList<CharacterCombat>(2));
 	}
 
 	public List<CharacterCombat> getAttacks() {

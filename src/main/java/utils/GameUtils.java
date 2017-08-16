@@ -39,10 +39,12 @@ public class GameUtils {
 		gameSaveStructure.setCharacter(createCharacter);
 
 		// create dir
-		createDir(saveDir.toFile());
+		if (!saveDir.toFile().exists()) {
+			createDir(saveDir.toFile());
+		}
 
 		// create file at dir
-		createFile(saveDir, gameSaveStructure);
+		saveToFile(saveDir, gameSaveStructure);
 	}
 
 	public static boolean lookForSaveFiles() {
@@ -89,7 +91,7 @@ public class GameUtils {
 		return save;
 	}
 
-	private static void createFile(Path path, GameSaveStructure gameSaveStructure) {
+	private static void saveToFile(Path path, GameSaveStructure gameSaveStructure) {
 		try {
 			String fileName = FileNames.SAVE_FILE.getFileName() + "-" + System.currentTimeMillis();
 			File file = new File(path.toString() + File.separator + fileName);
@@ -97,6 +99,8 @@ public class GameUtils {
 				PrintWriter pw = new PrintWriter(file.toString(), "UTF-8");
 				pw.println(CryptUtils.encrypt(gameSaveStructure.toString()));
 				pw.close();
+			} else {
+				// TODO update character information
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -104,19 +108,18 @@ public class GameUtils {
 	}
 
 	private static void createDir(File dir) {
-		if (!dir.exists()) {
-			System.out.println("Creating directory...");
-			boolean result = false;
 
-			try {
-				dir.mkdir();
-				result = true;
-			} catch (SecurityException se) {
+		System.out.println("Creating directory...");
+		boolean result = false;
 
-			}
-			if (result) {
-				System.out.println("Directory created at -> " + dir.toString());
-			}
+		try {
+			dir.mkdir();
+			result = true;
+		} catch (SecurityException se) {
+
+		}
+		if (result) {
+			System.out.println("Directory created at -> " + dir.toString());
 		}
 	}
 
