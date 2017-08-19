@@ -54,6 +54,7 @@ public class StartPlayingBoard extends JPanel implements ActionListener {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.drawImage(character.getSprite().getImage(), character.getSprite().getX(), character.getSprite().getY(),
 				this);
+		// TODO draw enemies
 	}
 
 	@Override

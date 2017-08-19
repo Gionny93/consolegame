@@ -1,28 +1,31 @@
 package game;
 
-import characters.commoncharacter.enemy.Enemy;
 import characters.commoncharacter.hero.Hero;
 import constants.States;
 import states.ExitGame;
 import states.common.GameState;
 import states.common.StatesFactory;
-import world.AbstractCity;
-
+import world.World;
+/**
+ * 
+ * @author shireenx
+ *
+ *enemies coming from top of the screen, if you dont avoid them u gotta battle, pokimon style, every x enemies there's a boss.
+ *you get exp from killing stuff, as you get levels u get new spells, think of something not boring to do with new spell, like combinations or smthing
+ */
 public class Game {
 
 	private GameState gameState;
 
 	private GameState oldState;
-	
+
 	private Hero character;
-	
-	private Enemy enemy;
 
 	private String choice;
-	
-	private AbstractCity world;
 
-	public Game(AbstractCity world) {
+	private World world;
+
+	public Game(World world) {
 		this.setWorld(world);
 		this.gameState = StatesFactory.createState(States.STARTMENU);
 		oldState = null;
@@ -44,7 +47,6 @@ public class Game {
 		}
 	}
 
-
 	public String getChoice() {
 		return choice;
 	}
@@ -61,14 +63,6 @@ public class Game {
 		this.oldState = oldState;
 	}
 
-	public AbstractCity getWorld() {
-		return world;
-	}
-
-	public void setWorld(AbstractCity world) {
-		this.world = world;
-	}
-
 	public Hero getCharacter() {
 		return character;
 	}
@@ -77,12 +71,12 @@ public class Game {
 		this.character = character;
 	}
 
-	public Enemy getEnemy() {
-		return enemy;
+	public World getWorld() {
+		return world;
 	}
 
-	public void setEnemy(Enemy enemy) {
-		this.enemy = enemy;
+	public void setWorld(World world) {
+		this.world = world;
 	}
 
 }

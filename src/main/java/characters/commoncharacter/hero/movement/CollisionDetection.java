@@ -10,11 +10,12 @@ public class CollisionDetection {
 		int windowMinX = 0;
 		int windowMinY = 0;
 		int windowMaxX = windowX - imageWidth;
-		int windowMaxY = windowY - imageHeight;
+		// why the fuck -38 idk just works nice code lul
+		int windowMaxY = windowY - imageHeight - 38;
 		int currentX = spriteHandler.getX() + spriteHandler.getDx();
 		int currentY = spriteHandler.getY() + spriteHandler.getDy();
 
-		if (currentX < windowMinX || currentY < windowMinY) {
+		if (currentX <= windowMinX || currentY <= windowMinY || currentX >= windowMaxX || currentY >= windowMaxY) {
 			return false;
 		}
 

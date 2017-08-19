@@ -4,13 +4,14 @@ public enum CombatAttacks {
 
 	TACKLE("1"), SPLASH("2");
 
-	private String attackKey;
+	private String attackType;
 
 	private CombatAttacks(String attackKey) {
-		this.attackKey = attackKey;
+		this.attackType = attackKey;
 	}
 
-	public String getAtackKey() {
-		return this.attackKey;
+	public String getAttackType() {
+		return attackType;
 	}
+
 }

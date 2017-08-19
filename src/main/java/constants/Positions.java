@@ -10,8 +10,8 @@ public enum Positions {
 	private Positions(InnerPosition innerPosition) {
 		switch (innerPosition) {
 		case MID_LOW:
-			this.setX(250);
-			this.setY(250);
+			this.setX(350);
+			this.setY(350);
 			break;
 		}
 	}

@@ -2,9 +2,10 @@ package constants;
 
 import java.awt.event.KeyEvent;
 
+// TODO probably better to make a config file
 public enum Direction {
 	UP(KeyEvent.VK_UP, KeyEvent.VK_W), LEFT(KeyEvent.VK_LEFT, KeyEvent.VK_A), DOWN(KeyEvent.VK_DOWN,
-			KeyEvent.VK_S), RIGHT(KeyEvent.VK_RIGHT, KeyEvent.VK_D);
+			KeyEvent.VK_S), RIGHT(KeyEvent.VK_RIGHT, KeyEvent.VK_D), SHIFT(KeyEvent.VK_SHIFT);
 
 	private int[] key;
 

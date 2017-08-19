@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 import characters.commoncharacter.SpriteHandler;
 import constants.Dimensions;
 import constants.Direction;
+import constants.Positions;
+import constants.Values;
 
 public abstract class AbstractMovement implements CharacterMovement {
 
@@ -24,8 +26,15 @@ public abstract class AbstractMovement implements CharacterMovement {
 				getSpriteHandler())) {
 			this.getSpriteHandler().setX(this.getSpriteHandler().getX() + this.getSpriteHandler().getDx() * speed);
 			this.getSpriteHandler().setY(this.getSpriteHandler().getY() + this.getSpriteHandler().getDy() * speed);
+		} else {
+			spawnAtDefaultLocation();
 		}
 
+	}
+
+	private void spawnAtDefaultLocation() {
+		this.getSpriteHandler().setX(Positions.STARTING_HERO_POSITION.getX());
+		this.getSpriteHandler().setY(Positions.STARTING_HERO_POSITION.getY());
 	}
 
 	@Override
@@ -42,6 +51,10 @@ public abstract class AbstractMovement implements CharacterMovement {
 		}
 		if (Direction.DOWN.containsKey(key)) {
 			this.getSpriteHandler().setDy(1);
+		}
+		if (Direction.SHIFT.containsKey(key)) {
+			// limit to 2sec or smthing
+			this.speed += Values.BOOST.getValue();
 		}
 
 	}
@@ -60,6 +73,9 @@ public abstract class AbstractMovement implements CharacterMovement {
 		}
 		if (Direction.DOWN.containsKey(key)) {
 			this.getSpriteHandler().setDy(0);
+		}
+		if (Direction.SHIFT.containsKey(key)) {
+			this.speed -= Values.BOOST.getValue();
 		}
 	}
 

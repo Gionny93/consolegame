@@ -6,7 +6,7 @@ public class DoubleSpeedHeroMovement extends AbstractMovement {
 
 	public DoubleSpeedHeroMovement(SpriteHandler spriteHandler) {
 		super(spriteHandler);
-		this.speed = 5;
+		this.speed = 4;
 	}
 	
 }
