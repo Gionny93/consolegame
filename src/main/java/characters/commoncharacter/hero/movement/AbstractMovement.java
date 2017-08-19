@@ -3,6 +3,7 @@ package characters.commoncharacter.hero.movement;
 import java.awt.event.KeyEvent;
 
 import characters.commoncharacter.SpriteHandler;
+import constants.Direction;
 
 public abstract class AbstractMovement implements CharacterMovement {
 
@@ -21,42 +22,35 @@ public abstract class AbstractMovement implements CharacterMovement {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		switch (key) {
-		case KeyEvent.VK_LEFT:
+		if (Direction.LEFT.containsKey(key)) {
 			this.getSpriteHandler().setDx(-1);
-			break;
-		case KeyEvent.VK_RIGHT:
+		}
+		if (Direction.RIGHT.containsKey(key)) {
 			this.getSpriteHandler().setDx(1);
-			break;
-		case KeyEvent.VK_UP:
+		}
+		if (Direction.UP.containsKey(key)) {
 			this.getSpriteHandler().setDy(-1);
-			break;
-		case KeyEvent.VK_DOWN:
+		}
+		if (Direction.DOWN.containsKey(key)) {
 			this.getSpriteHandler().setDy(1);
-			break;
-		default:
-			break;
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
-		switch (key) {
-		case KeyEvent.VK_LEFT:
+
+		if (Direction.LEFT.containsKey(key)) {
 			this.getSpriteHandler().setDx(0);
-			break;
-		case KeyEvent.VK_RIGHT:
+		}
+		if (Direction.RIGHT.containsKey(key)) {
 			this.getSpriteHandler().setDx(0);
-			break;
-		case KeyEvent.VK_UP:
+		}
+		if (Direction.UP.containsKey(key)) {
 			this.getSpriteHandler().setDy(0);
-			break;
-		case KeyEvent.VK_DOWN:
+		}
+		if (Direction.DOWN.containsKey(key)) {
 			this.getSpriteHandler().setDy(0);
-			break;
-		default:
-			break;
 		}
 	}
 

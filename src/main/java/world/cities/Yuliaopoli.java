@@ -1,9 +1,9 @@
 package world.cities;
 
 import constants.TileType;
-import world.World;
+import world.AbstractCity;
 
-public class Yuliaopoli extends World {
+public class Yuliaopoli extends AbstractCity {
 
 	@Override
 	protected void buildCity() {

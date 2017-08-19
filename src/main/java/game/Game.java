@@ -6,7 +6,7 @@ import constants.States;
 import states.ExitGame;
 import states.common.GameState;
 import states.common.StatesFactory;
-import world.World;
+import world.AbstractCity;
 
 public class Game {
 
@@ -20,9 +20,9 @@ public class Game {
 
 	private String choice;
 	
-	private World world;
+	private AbstractCity world;
 
-	public Game(World world) {
+	public Game(AbstractCity world) {
 		this.setWorld(world);
 		this.gameState = StatesFactory.createState(States.STARTMENU);
 		oldState = null;
@@ -61,11 +61,11 @@ public class Game {
 		this.oldState = oldState;
 	}
 
-	public World getWorld() {
+	public AbstractCity getWorld() {
 		return world;
 	}
 
-	public void setWorld(World world) {
+	public void setWorld(AbstractCity world) {
 		this.world = world;
 	}
 

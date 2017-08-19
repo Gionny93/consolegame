@@ -9,11 +9,11 @@ import world.terrain.WaterTile;
 import world.terrain.commonterrains.AbstractTile;
 import world.terrain.commonterrains.TileFactory;
 
-public abstract class World {
+public abstract class AbstractCity {
 
 	private AbstractTile[][] world;
 
-	public World() {
+	public AbstractCity() {
 		world = new AbstractTile[Dimensions.WORLD_DEFAULT.getX()][Dimensions.WORLD_DEFAULT.getY()];
 		baseTile();
 		buildCity();
