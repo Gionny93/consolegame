@@ -1,9 +1,9 @@
 package world.terrain;
 
-import world.terrain.commonterrains.AbstractTile;
+import world.terrain.commonterrains.Tile;
 import world.terrain.commonterrains.TerrainEffect;
 
-public class WaterTile extends AbstractTile{
+public class WaterTile extends Tile{
 
 	public WaterTile(TerrainEffect terrainEffect) {
 		super(terrainEffect);

@@ -14,22 +14,21 @@ import world.terrain.terrainswitheffect.WaterTerrain;
 
 public class TileFactory {
 
-	private static final Map<TileType, AbstractTile> tilesMap = new HashMap<>();
+	private static final Map<TileType, Tile> tilesMap = new HashMap<>();
 
-	public static AbstractTile getTile(TileType tileType) {
-		AbstractTile tile = (AbstractTile) tilesMap.get(tileType);
+	public static Tile getTile(TileType tileType) {
+		Tile tile = (Tile) tilesMap.get(tileType);
 
 		if (tile == null) {
 			tile = TileCreator.createTile(tileType);
 			tilesMap.put(tileType, tile);
-			System.out.println("creating tile of type " + tileType.name());
 		}
 		return tile;
 	}
 
 	private static class TileCreator {
-		public static AbstractTile createTile(TileType tileType) {
-			AbstractTile tile = null;
+		public static Tile createTile(TileType tileType) {
+			Tile tile = null;
 			switch (tileType) {
 			case WATER:
 				tile = new WaterTile(new WaterTerrain());

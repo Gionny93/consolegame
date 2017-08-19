@@ -6,11 +6,7 @@ public class DoubleSpeedHeroMovement extends AbstractMovement {
 
 	public DoubleSpeedHeroMovement(SpriteHandler spriteHandler) {
 		super(spriteHandler);
+		this.speed = 5;
 	}
-
-	@Override
-	public void move() {
-		this.getSpriteHandler().setX(this.getSpriteHandler().getX() + this.getSpriteHandler().getDx() * 2);
-		this.getSpriteHandler().setY(this.getSpriteHandler().getY() + this.getSpriteHandler().getDy() * 2);
-	}
+	
 }

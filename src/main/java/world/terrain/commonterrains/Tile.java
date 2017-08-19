@@ -1,12 +1,13 @@
 package world.terrain.commonterrains;
 
-public abstract class AbstractTile {
+public class Tile {
 
 	private TerrainEffect terrain;
-	
-	private int[][] tileSize;
-	
-	public AbstractTile(TerrainEffect terrainEffect) {
+
+	//add image for each tile obj
+	//private Image tileSprite;
+
+	public Tile(TerrainEffect terrainEffect) {
 		this.setTerrain(terrainEffect);
 	}
 
@@ -17,9 +18,4 @@ public abstract class AbstractTile {
 	public void setTerrain(TerrainEffect terrain) {
 		this.terrain = terrain;
 	}
-
-	public int[][] getTileSize() {
-		return tileSize;
-	}
-	
 }

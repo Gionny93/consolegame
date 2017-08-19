@@ -4,6 +4,8 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import constants.Positions;
+
 public class SpriteHandler {
 
 	private Image image;
@@ -16,10 +18,14 @@ public class SpriteHandler {
 
 	private int dy;
 
-	public SpriteHandler(ImageIcon imageIcon) {
+	public SpriteHandler(ImageIcon imageIcon, int xPosition, int yPosition) {
 		image = imageIcon.getImage();
-		setX(40);
-		setY(60);
+		setX(xPosition);
+		setY(yPosition);
+	}
+
+	public SpriteHandler(ImageIcon imageIcon, Positions position) {
+		this(imageIcon, position.getX(), position.getY());
 	}
 
 	public Image getImage() {

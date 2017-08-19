@@ -6,52 +6,54 @@ import world.terrain.FireTile;
 import world.terrain.GrassTile;
 import world.terrain.GroundTile;
 import world.terrain.WaterTile;
-import world.terrain.commonterrains.AbstractTile;
+import world.terrain.commonterrains.Tile;
 import world.terrain.commonterrains.TileFactory;
 
 public abstract class AbstractCity {
 
-	private AbstractTile[][] world;
+	protected Tile[][] tile;
 
 	public AbstractCity() {
-		world = new AbstractTile[Dimensions.WORLD_DEFAULT.getX()][Dimensions.WORLD_DEFAULT.getY()];
+		createTileBasedOnCityImpl();
 		baseTile();
 		buildCity();
 	}
 
+	protected abstract void createTileBasedOnCityImpl();
+
 	protected abstract void buildCity();
 
 	protected void addTile(TileType tileType, int initX, int initY, int finX, int finY) {
-		if (initX <= finX && initY <= finY && initX <= Dimensions.WORLD_DEFAULT.getX()
-				&& finX <= Dimensions.WORLD_DEFAULT.getX() && initY <= Dimensions.WORLD_DEFAULT.getY()
-				&& finY <= Dimensions.WORLD_DEFAULT.getY()) {
+		if (initX <= finX && initY <= finY && initX <= Dimensions.YULIA_CITY.getX()
+				&& finX <= Dimensions.YULIA_CITY.getX() && initY <= Dimensions.YULIA_CITY.getY()
+				&& finY <= Dimensions.YULIA_CITY.getY()) {
 			for (int i = initX; i <= finX; i++) {
 				for (int j = initY; j <= finY; j++) {
-					world[i][j] = TileFactory.getTile(tileType);
+					tile[i][j] = TileFactory.getTile(tileType);
 				}
 			}
 		}
 	}
 
 	protected void baseTile() {
-		for (int i = 0; i < world.length; i++) {
-			for (int j = 0; j < world[i].length; j++) {
-				world[i][j] = TileFactory.getTile(TileType.NORMAL_TERRAIN);
+		for (int i = 0; i < tile.length; i++) {
+			for (int j = 0; j < tile[i].length; j++) {
+				tile[i][j] = TileFactory.getTile(TileType.NORMAL_TERRAIN);
 			}
 		}
 	}
 
 	public void showWorldGUI() {
-		for (int i = 0; i < world.length; i++) {
-			//showTile(world[i][0]);
-			for (int j = 0; j < world[i].length; j++) {
-				showTile(world[i][j]);
+		for (int i = 0; i < tile.length; i++) {
+			// showTile(world[i][0]);
+			for (int j = 0; j < tile[i].length; j++) {
+				showTile(tile[i][j]);
 			}
 			System.out.println("\n");
 		}
 	}
 
-	private void showTile(AbstractTile abstractTile) {
+	private void showTile(Tile abstractTile) {
 		if (abstractTile instanceof FireTile) {
 			System.out.print("*");
 		}
@@ -66,12 +68,12 @@ public abstract class AbstractCity {
 		}
 	}
 
-	public AbstractTile[][] getWorld() {
-		return world;
+	public Tile[][] getWorld() {
+		return tile;
 	}
 
-	public void setWorld(AbstractTile[][] world) {
-		this.world = world;
+	public void setWorld(Tile[][] world) {
+		this.tile = world;
 	}
 
 }

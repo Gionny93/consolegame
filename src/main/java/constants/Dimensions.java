@@ -2,7 +2,7 @@ package constants;
 
 public enum Dimensions {
 
-	WORLD_DEFAULT(80, 25), WINDOW_DIM(800, 600);
+	YULIA_CITY(80, 25), WINDOW_DIM(600, 400);
 
 	private int x, y;
 

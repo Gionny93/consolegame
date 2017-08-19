@@ -9,8 +9,6 @@ import constants.CombatAttacks;
 
 public class GionnyCharacter extends Hero {
 	
-	
-
 	public GionnyCharacter(String name) {
 		super(name);
 		this.setCharacterClass(CharacterClass.GIONNY);
@@ -28,7 +26,7 @@ public class GionnyCharacter extends Hero {
 
 	@Override
 	protected ImageIcon setCharacterIcon() {
-		return new ImageIcon("/home/shireenx/Pictures/sprites/gionnyhero.png");
+		return new ImageIcon("/home/shireenx/Pictures/sprites/gionnyhero.png"); 
 	}
 
 }

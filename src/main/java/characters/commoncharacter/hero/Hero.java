@@ -8,6 +8,7 @@ import characters.commoncharacter.SpriteHandler;
 import characters.commoncharacter.hero.movement.DefaultHeroMovement;
 import constants.CharacterClass;
 import constants.FileNames;
+import constants.Positions;
 
 public abstract class Hero extends AbstractCharacter {
 
@@ -16,7 +17,7 @@ public abstract class Hero extends AbstractCharacter {
 	public Hero(String name) {
 		super(name);
 		this.setCharacterCombat(new HeroCombat());
-		this.setSprite(new SpriteHandler(setCharacterIcon()));
+		this.setSprite(new SpriteHandler(setCharacterIcon(), Positions.STARTING_HERO_POSITION));
 		this.setCharacterMovement(new DefaultHeroMovement(getSprite()));
 		defaultCombat();
 	}
