@@ -1,7 +1,10 @@
 package characters.commoncharacter.hero;
 
+import javax.swing.ImageIcon;
+
 import characters.actions.heroactions.HeroCombat;
 import characters.commoncharacter.AbstractCharacter;
+import characters.commoncharacter.SpriteHandler;
 import characters.commoncharacter.hero.movement.DefaultHeroMovement;
 import constants.CharacterClass;
 import constants.FileNames;
@@ -13,11 +16,14 @@ public abstract class Hero extends AbstractCharacter {
 	public Hero(String name) {
 		super(name);
 		this.setCharacterCombat(new HeroCombat());
-		this.setCharacterMovement(new DefaultHeroMovement());
+		this.setSprite(new SpriteHandler(setCharacterIcon()));
+		this.setCharacterMovement(new DefaultHeroMovement(getSprite()));
 		defaultCombat();
 	}
 
 	protected abstract void defaultCombat();
+
+	protected abstract ImageIcon setCharacterIcon();
 
 	public CharacterClass getCharacterClass() {
 		return characterClass;

@@ -1,18 +1,12 @@
 package characters.commoncharacter.hero.movement;
 
-import constants.Direction;
+import characters.commoncharacter.SpriteHandler;
 
-public class DefaultHeroMovement implements CharacterMovement {
+// TODO change this class as it is quite useless, common behaviour is already defined on superclass
+public class DefaultHeroMovement extends AbstractMovement {
 
-	@Override
-	public void move(Direction direction) {
-		switch (direction) {
-		case UP:
-			System.out.println("Moved up 1 tile");
-			break;
-		default:
-			break;
-		}
+	public DefaultHeroMovement(SpriteHandler spriteHandler) {
+		super(spriteHandler);
 	}
 
 }

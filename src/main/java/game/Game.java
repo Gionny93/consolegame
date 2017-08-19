@@ -6,7 +6,6 @@ import constants.States;
 import states.ExitGame;
 import states.common.GameState;
 import states.common.StatesFactory;
-import utils.GameUtils;
 import world.World;
 
 public class Game {
@@ -41,7 +40,6 @@ public class Game {
 
 	public void gameLoop() {
 		while (!(gameState instanceof ExitGame)) {
-			this.setChoice(GameUtils.getInput());
 			this.gameState.changeState(this);
 		}
 	}

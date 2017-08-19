@@ -59,7 +59,7 @@ public class NewGame extends AbstractGameState {
 
 	@Override
 	protected void changeOnChoice(Game gameWrapper) {
-		switch (gameWrapper.getChoice()) {
+		switch (GameUtils.getInput()) {
 		case "1":
 			gameWrapper.setCharacter(this.character);
 			gameWrapper.setState(StatesFactory.createState(States.STARGAME));

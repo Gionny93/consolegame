@@ -1,14 +1,16 @@
 package states;
 
-import constants.Direction;
-import constants.States;
+import java.awt.EventQueue;
+
 import game.Game;
+import gameboard.MainBoard;
 import states.common.AbstractGameState;
-import states.common.StatesFactory;
+import utils.GameUtils;
 
 public class StartGame extends AbstractGameState {
 
 	public StartGame() {
+
 		// load game from file
 		// handle loading in another class LoadingGame
 	}
@@ -16,33 +18,31 @@ public class StartGame extends AbstractGameState {
 	@Override
 	protected void options() {
 		System.out.println("\nGame started");
-		System.out.println("\nwasd) move\n" + "p) pause\n" + "q) quit");
+		//System.out.println("\nwasd) move\n" + "p) pause\n" + "q) quit");
 	}
 
 	protected void changeOnChoice(Game gameWrapper) {
+
+		EventQueue.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				MainBoard mainBoard = new MainBoard(gameWrapper);
+				mainBoard.setVisible(true);
+				// handle action, for now blocking infinite loop with getinput
+			}
+		});
 		// gameWrapper.getWorld().showWorldGUI();
-		switch (gameWrapper.getChoice()) {
-		case "w":
-			gameWrapper.getCharacter().move(Direction.UP);
-			System.out.println("Moving up");
-			break;
-		case "a":
-			gameWrapper.getCharacter().move(Direction.LEFT);
-			System.out.println("Moving left");
-			break;
-		case "s":
-			gameWrapper.getCharacter().move(Direction.DOWN);
-			System.out.println("Moving down");
-			break;
-		case "d":
-			gameWrapper.getCharacter().move(Direction.RIGHT);
-			System.out.println("Moving right");
-			break;
+		// rework with swing actions
+		switch (GameUtils.getInput()) {
+		/*
 		case "p":
 			gameWrapper.setStateWithInstance(StatesFactory.createState(States.PAUSEGAME), this);
 			break;
 		case "q":
 			gameWrapper.setState(StatesFactory.createState(States.EXIGAME));
+			break;*/
+		default:
 			break;
 		}
 	}

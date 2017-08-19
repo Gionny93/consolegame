@@ -4,6 +4,7 @@ import constants.States;
 import game.Game;
 import states.common.AbstractGameState;
 import states.common.StatesFactory;
+import utils.GameUtils;
 
 public class PauseGame extends AbstractGameState {
 
@@ -18,7 +19,7 @@ public class PauseGame extends AbstractGameState {
 
 	@Override
 	protected void changeOnChoice(Game gameWrapper) {
-		switch (gameWrapper.getChoice()) {
+		switch (GameUtils.getInput()) {
 		case "r":
 			gameWrapper.setState(gameWrapper.getOldState());
 			System.out.println("\nGame resumed\n");

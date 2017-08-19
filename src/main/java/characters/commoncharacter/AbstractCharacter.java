@@ -1,9 +1,8 @@
 package characters.commoncharacter;
 
 import characters.actions.commonactions.AbstractCombat;
-import characters.commoncharacter.hero.movement.CharacterMovement;
+import characters.commoncharacter.hero.movement.AbstractMovement;
 import constants.DefaultStrings;
-import constants.Direction;
 import constants.FileNames;
 
 public abstract class AbstractCharacter {
@@ -14,18 +13,16 @@ public abstract class AbstractCharacter {
 
 	private AbstractCombat characterCombat;
 
-	private CharacterMovement characterMovement;
+	private AbstractMovement characterMovement;
 
+	private SpriteHandler sprite;
+	
 	public AbstractCharacter() {
 		this.name = DefaultStrings.DEFAULT_NAME.getDefaultName();
 	}
 
 	public AbstractCharacter(String name) {
 		this.name = name;
-	}
-
-	public void move(Direction direction) {
-		this.characterMovement.move(direction);
 	}
 
 	public String getName() {
@@ -52,11 +49,12 @@ public abstract class AbstractCharacter {
 		this.characterCombat = characterCombat;
 	}
 
-	public CharacterMovement getCharacterMovement() {
+
+	public AbstractMovement getCharacterMovement() {
 		return characterMovement;
 	}
 
-	public void setCharacterMovement(CharacterMovement characterMovement) {
+	public void setCharacterMovement(AbstractMovement characterMovement) {
 		this.characterMovement = characterMovement;
 	}
 
@@ -67,6 +65,14 @@ public abstract class AbstractCharacter {
 		builder.append(FileNames.SEPARATOR.getFileName());
 		builder.append(this.getAttributes().toString());
 		return builder.toString();
+	}
+
+	public SpriteHandler getSprite() {
+		return sprite;
+	}
+
+	public void setSprite(SpriteHandler sprite) {
+		this.sprite = sprite;
 	}
 
 }

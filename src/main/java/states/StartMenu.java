@@ -20,7 +20,7 @@ public class StartMenu extends AbstractGameState {
 	}
 
 	protected void changeOnChoice(Game gameWrapper) {
-		switch (gameWrapper.getChoice()) {
+		switch (GameUtils.getInput()) {
 		case "1":
 			if (checkFirstTime()) {
 				gameWrapper.setState(StatesFactory.createState(States.NEWGAME));

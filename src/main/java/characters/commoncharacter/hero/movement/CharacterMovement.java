@@ -1,9 +1,13 @@
 package characters.commoncharacter.hero.movement;
 
-import constants.Direction;
+import java.awt.event.KeyEvent;
 
 public interface CharacterMovement {
 
-	void move(Direction direction);
+	void move();
+	
+	void keyPressed(KeyEvent e);
+	
+	void keyReleased(KeyEvent e);
 	
 }

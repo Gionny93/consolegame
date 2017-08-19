@@ -1,5 +1,7 @@
 package characters.concretecharacters;
 
+import javax.swing.ImageIcon;
+
 import characters.commoncharacter.hero.Hero;
 import constants.CharacterClass;
 
@@ -16,6 +18,12 @@ public class DanielCharacter extends Hero {
 	protected void defaultCombat() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	protected ImageIcon setCharacterIcon() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
