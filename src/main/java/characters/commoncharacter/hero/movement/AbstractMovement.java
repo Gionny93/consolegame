@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 
 import characters.commoncharacter.SpriteHandler;
 import constants.Dimensions;
-import constants.Direction;
+import constants.Keys;
 import constants.Positions;
 import constants.Values;
 
@@ -40,19 +40,19 @@ public abstract class AbstractMovement implements CharacterMovement {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		if (Direction.LEFT.containsKey(key)) {
+		if (Keys.LEFT.containsKey(key)) {
 			this.getSpriteHandler().setDx(-1);
 		}
-		if (Direction.RIGHT.containsKey(key)) {
+		if (Keys.RIGHT.containsKey(key)) {
 			this.getSpriteHandler().setDx(1);
 		}
-		if (Direction.UP.containsKey(key)) {
+		if (Keys.UP.containsKey(key)) {
 			this.getSpriteHandler().setDy(-1);
 		}
-		if (Direction.DOWN.containsKey(key)) {
+		if (Keys.DOWN.containsKey(key)) {
 			this.getSpriteHandler().setDy(1);
 		}
-		if (Direction.SHIFT.containsKey(key)) {
+		if (Keys.SHIFT.containsKey(key)) {
 			// limit to 2sec or smthing
 			this.speed += Values.BOOST.getValue();
 		}
@@ -62,19 +62,19 @@ public abstract class AbstractMovement implements CharacterMovement {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
-		if (Direction.LEFT.containsKey(key)) {
+		if (Keys.LEFT.containsKey(key)) {
 			this.getSpriteHandler().setDx(0);
 		}
-		if (Direction.RIGHT.containsKey(key)) {
+		if (Keys.RIGHT.containsKey(key)) {
 			this.getSpriteHandler().setDx(0);
 		}
-		if (Direction.UP.containsKey(key)) {
+		if (Keys.UP.containsKey(key)) {
 			this.getSpriteHandler().setDy(0);
 		}
-		if (Direction.DOWN.containsKey(key)) {
+		if (Keys.DOWN.containsKey(key)) {
 			this.getSpriteHandler().setDy(0);
 		}
-		if (Direction.SHIFT.containsKey(key)) {
+		if (Keys.SHIFT.containsKey(key)) {
 			this.speed -= Values.BOOST.getValue();
 		}
 	}

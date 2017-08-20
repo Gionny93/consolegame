@@ -32,8 +32,7 @@ public class StartGame extends AbstractGameState {
 				// handle action, for now blocking infinite loop with getinput
 			}
 		});
-		// gameWrapper.getWorld().showWorldGUI();
-		// rework with swing actions
+		
 		switch (GameUtils.getInput()) {
 		/*
 		case "p":

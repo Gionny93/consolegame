@@ -12,8 +12,9 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import characters.commoncharacter.AbstractCharacter;
+import characters.commoncharacter.GameInputsHandler;
 import game.Game;
+import states.StartGame;
 
 public class StartPlayingBoard extends JPanel implements ActionListener {
 
@@ -21,12 +22,13 @@ public class StartPlayingBoard extends JPanel implements ActionListener {
 
 	private Timer timer;
 
-	private AbstractCharacter character;
+	private Game gameWrapper;
 
 	private final int DELAY = 10;
 
 	public StartPlayingBoard(Game gameWrapper) {
-		this.character = gameWrapper.getCharacter();
+		this.setGameWrapper(gameWrapper);
+		this.gameWrapper.setOldState(new StartGame());
 		initBoard();
 	}
 
@@ -52,34 +54,34 @@ public class StartPlayingBoard extends JPanel implements ActionListener {
 
 	private void doDrwaing(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.drawImage(character.getSprite().getImage(), character.getSprite().getX(), character.getSprite().getY(),
-				this);
+		g2d.drawImage(gameWrapper.getCharacter().getSprite().getImage(), gameWrapper.getCharacter().getSprite().getX(),
+				gameWrapper.getCharacter().getSprite().getY(), this);
 		// TODO draw enemies
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		character.getCharacterMovement().move();
+		gameWrapper.getCharacter().getCharacterMovement().move();
 		repaint();
 	}
 
-	public AbstractCharacter getCharacter() {
-		return character;
+	public Game getGameWrapper() {
+		return gameWrapper;
 	}
 
-	public void setCharacter(AbstractCharacter character) {
-		this.character = character;
+	public void setGameWrapper(Game gameWrapper) {
+		this.gameWrapper = gameWrapper;
 	}
 
 	private class TAdapter extends KeyAdapter {
 		@Override
 		public void keyPressed(KeyEvent e) {
-			character.getCharacterMovement().keyPressed(e);
+			GameInputsHandler.handleGameInputsKeyPressed(gameWrapper, e);
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-			character.getCharacterMovement().keyReleased(e);
+			GameInputsHandler.handleGameInputsKeyReleased(gameWrapper, e);
 		}
 	}
 

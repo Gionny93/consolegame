@@ -1,10 +1,7 @@
 package states;
 
-import constants.States;
 import game.Game;
 import states.common.AbstractGameState;
-import states.common.StatesFactory;
-import utils.GameUtils;
 
 public class PauseGame extends AbstractGameState {
 
@@ -19,6 +16,7 @@ public class PauseGame extends AbstractGameState {
 
 	@Override
 	protected void changeOnChoice(Game gameWrapper) {
+		/*
 		switch (GameUtils.getInput()) {
 		case "r":
 			gameWrapper.setState(gameWrapper.getOldState());
@@ -31,6 +29,7 @@ public class PauseGame extends AbstractGameState {
 			gameWrapper.setState(StatesFactory.createState(States.PAUSEGAME));
 			break;
 		}
+		*/
 	}
 
 }
